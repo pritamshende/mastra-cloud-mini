@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mastra Cloud Mini</title>
+</head>
+<body>
+  <h2>🚀 Deploy Your Mastra AI Instance</h2>
+  <form id="deployForm">
+    <label for="apiKey">OpenAI API Key:</label><br>
+    <input type="text" id="apiKey" name="apiKey" required><br><br>
+    <input type="submit" value="Deploy">
+  </form>
+
+  <p id="result"></p>
+
+  <script>
+    document.getElementById('deployForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const apiKey = document.getElementById('apiKey').value;
+      const res = await fetch('/deploy', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ api_key: apiKey })
+      });
+      const data = await res.json();
+      document.getElementById('result').innerText = data.message;
+    });
+  </script>
+</body>
+</html>
