@@ -106,7 +106,7 @@ python-dotenv
 
 **.env.example**
 ```
-OPENAI_API_KEY=test-key-123
+OPENAI_API_KEY=apikey
 ```
 
 ---
